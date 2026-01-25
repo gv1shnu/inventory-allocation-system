@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const sequelize = require('./models');
 require('./models/product');
 require('./models/order');
@@ -6,6 +7,8 @@ require('./models/order');
 const orderRoutes = require('./routes/orderRoutes');
 
 const app = express();
+
+app.use(cors());
 
 app.use(express.json());
 app.use('/order', orderRoutes);
